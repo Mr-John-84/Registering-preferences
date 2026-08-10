@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل رغبات البكالوريا 2026 / 2027 - مدرسة الشهيد أحمد عبد الرحيم السرسي</title>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>تجميع رغبات البكالوريا 2026 / 2027 - مدرسة الشهيد أحمد عبد الرحيم السرسي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary-color: #1e3a8a;
@@ -40,8 +40,44 @@
 
         .header { text-align: center; margin-bottom: 20px; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; }
         .header h1 { color: var(--primary-color); font-size: 20px; font-weight: 700; margin-bottom: 6px; line-height: 1.4; }
-        .header p { color: #64748b; font-size: 14px; }
-        .header .academic-year { font-weight: 700; color: var(--primary-color); margin-top: 6px; font-size: 15px; }
+        
+        /* بنر تحذيري ضخم وجذاب للصف الثاني الثانوي */
+        .grade-alert-banner {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 16px 20px;
+            text-align: center;
+            margin: 15px 0 20px 0;
+            border: 3px solid #fca5a5;
+            box-shadow: 0 8px 20px rgba(220, 38, 38, 0.25);
+            animation: pulse-red 2s infinite;
+        }
+
+        @keyframes pulse-red {
+            0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.5); }
+            70% { box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+        }
+
+        .grade-alert-banner h2 {
+            font-size: 21px;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .grade-alert-banner p {
+            font-size: 14px;
+            color: #fef2f2;
+            font-weight: 700;
+        }
+
+        .header .academic-year { font-weight: 700; color: var(--primary-color); margin-top: 8px; font-size: 15px; }
 
         .step-indicator {
             display: flex;
@@ -147,7 +183,15 @@
 <div class="form-container">
     <div class="header">
         <h1>مدرسة الشهيد أحمد عبد الرحيم السرسي<br><span style="font-size: 15px; color: #475569;">(الثانوية القديمة بنات سابقاً)</span></h1>
-        <p style="margin-top: 8px;">تسجيل رغبات ومسارات شهادة البكالوريا - الصف الثاني الثانوي</p>
+        <p style="margin-top: 8px; font-weight: bold; color: var(--primary-color);">تسجيل رغبات ومسارات شهادة البكالوريا</p>
+        
+        <!-- بنر التنبيه البارز للصف الثاني الثانوي -->
+        <div class="grade-alert-banner">
+            <h2>🛑 تنبيه هـام جـداً 🛑</h2>
+            <p>هذه الاستمارة مخصصة فقط لطالبات (الصف الثاني الثانوي)</p>
+            <p style="font-size: 12px; margin-top: 4px; opacity: 0.9;">ممنوع التسجيل لطالبات الصف الأول أو الصف الثالث الثانوي</p>
+        </div>
+        
         <p class="academic-year">العام الدراسي 2026 / 2027</p>
     </div>
 
@@ -159,35 +203,45 @@
 
     <!-- تنبيه منع التكرار -->
     <div class="warning-box">
-        <strong>⚠️ تنبيه هام جداً:</strong> يُسمح لكل طالبة بالتسجيل <strong>مرة واحدة فقط</strong>، ولا يمكن تعديل الرغبة أو البيانات بعد الضغط على زر الإرسال.
+        <strong>⚠️ تنبيه:</strong> يُسمح لكل طالبة بالصف الثاني الثانوي بالتسجيل <strong>مرة واحدة فقط</strong>، ولا يمكن تعديل الرغبة بعد الضغط على زر الإرسال.
     </div>
 
     <form id="bacForm">
         <!-- ================= الخطوة الأولى: البيانات الأساسية ================= -->
         <div id="step1">
             <div class="form-group">
-                <label for="fullName">الاسم الرباعي <span style="color:red">*</span></label>
-                <input type="text" id="fullName" placeholder="أدخلي الاسم الرباعي كما هو بالشهادة">
-                <span class="error-msg" id="fullNameError">يرجى كتابة الاسم الرباعي بشكل صحيح.</span>
+                <label for="fullName">الاسم الرباعي (باللغة العربية) <span style="color:red">*</span></label>
+                <input type="text" id="fullName" placeholder="أدخلي الاسم الرباعي باللغة العربية">
+                <span class="error-msg" id="fullNameError">يرجى كتابة الاسم الرباعي باللغة العربية فقط (4 أسماء على الأقل).</span>
             </div>
 
-            <!-- كود الطالبة (9 أرقام) -->
             <div class="form-group">
                 <label for="studentCode">كود الطالبة (9 أرقام) <span style="color:red">*</span></label>
-                <input type="text" id="studentCode" maxlength="9" placeholder="أدخلي 9 أرقام باللغة الإنجليزية" oninput="fixDigits(this)">
+                <input type="text" id="studentCode" maxlength="9" placeholder="أدخلي 9 أرقام" oninput="fixDigits(this)">
                 <span class="error-msg" id="studentCodeError">يجب إدخال كود الطالبة صحيحاً ومكوناً من 9 أرقام.</span>
             </div>
 
             <div class="form-group">
                 <label for="nationalId">الرقم القومي (14 رقم) <span style="color:red">*</span></label>
-                <input type="text" id="nationalId" maxlength="14" placeholder="أدخلي 14 رقم باللغة الإنجليزية" oninput="fixDigits(this)">
+                <input type="text" id="nationalId" maxlength="14" placeholder="أدخلي 14 رقم" oninput="fixDigits(this)">
                 <span class="error-msg" id="nationalIdError">يجب إدخال 14 رقم صحيح.</span>
             </div>
 
             <div class="form-group">
                 <label for="phone">رقم التليفون / الواتساب <span style="color:red">*</span></label>
-                <input type="tel" id="phone" maxlength="11" placeholder="01XXXXXXXXX">
+                <input type="tel" id="phone" maxlength="11" placeholder="01XXXXXXXXX" oninput="fixDigits(this)">
                 <span class="error-msg" id="phoneError">يرجى إدخال رقم محمول صحيح مكون من 11 رقم.</span>
+            </div>
+
+            <!-- حقل نظام الدراسة -->
+            <div class="form-group">
+                <label for="studentType">نظام الدراسة <span style="color:red">*</span></label>
+                <select id="studentType">
+                    <option value="" disabled selected>-- اختاري نظام الدراسة --</option>
+                    <option value="انتظام">انتظام</option>
+                    <option value="منازل">منازل</option>
+                </select>
+                <span class="error-msg" id="studentTypeError">يرجى اختيار نظام الدراسة (انتظام أو منازل).</span>
             </div>
 
             <div class="btn-group">
@@ -233,26 +287,24 @@
 
 <!-- حقوق التطوير والتصميم -->
 <div class="footer-credits">
-    Design and development by Mr. John Wagdy <br>(2026)
-<br>01064997527
+    Design and development by Mr. John Wagdy <br> 2026 <br> 01554463535
 </div>
 
 <script>
-function fixDigits(el) {
-    // 1. تحويل الأرقام العربية المشرقية (٠-٩) إلى أرقام إنجليزية (0-9)
-    const arabicDigits = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
-    for (let i = 0; i < 10; i++) {
-        el.value = el.value.replaceAll(arabicDigits[i], i);
-    }
-    // 2. مسح أي شيء آخر ليس رقماً إنجليزياً (حروف، رموز، مساحات)
-    el.value = el.value.replace(/[^0-9]/g, '');
-}
     const trackSubjectsMap = {
         "الطب وعلوم الحياة": ["الرياضيات", "الفيزياء"],
         "الهندسة وعلوم الحاسب": ["الكيمياء", "البرمجة"],
         "الأعمال": ["محاسبة", "إدارة أعمال"],
         "الآداب والفنون": ["علم النفس", "لغة ثانية"]
     };
+
+    function fixDigits(el) {
+        const arabicDigits = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+        for (let i = 0; i < 10; i++) {
+            el.value = el.value.replaceAll(arabicDigits[i], i);
+        }
+        el.value = el.value.replace(/[^0-9]/g, '');
+    }
 
     window.onload = function() {
         if (localStorage.getItem("bacSubmitted_Sersi") === "true") {
@@ -265,7 +317,11 @@ function fixDigits(el) {
         container.innerHTML = `
             <div class="header">
                 <h1>مدرسة الشهيد أحمد عبد الرحيم السرسي<br><span style="font-size: 15px; color: #475569;">(الثانوية القديمة بنات سابقاً)</span></h1>
-                <p style="margin-top: 8px;">تسجيل رغبات ومسارات شهادة البكالوريا - الصف الثاني الثانوي</p>
+                <p style="margin-top: 8px; font-weight: bold; color: var(--primary-color);">تسجيل رغبات ومسارات شهادة البكالوريا</p>
+                <div class="grade-alert-banner">
+                    <h2>🛑 تنبيه هـام جـداً 🛑</h2>
+                    <p>هذه الاستمارة مخصصة فقط لطالبات (الصف الثاني الثانوي)</p>
+                </div>
                 <p class="academic-year">العام الدراسي 2026 / 2027</p>
                 <p style="color: #16a34a; font-weight: bold; margin-top: 20px; font-size: 16px;">
                     ✓ تم تسجيل رغبتك بنجاح مسبقاً من هذا الجهاز.
@@ -282,10 +338,14 @@ function fixDigits(el) {
         const studentCode = document.getElementById("studentCode").value.trim();
         const nationalId = document.getElementById("nationalId").value.trim();
         const phone = document.getElementById("phone").value.trim();
+        const studentType = document.getElementById("studentType").value;
 
         let isValid = true;
 
-        if (!fullName) {
+        const arabicRegex = /^[\u0600-\u06FF\s]+$/;
+        const nameParts = fullName.split(/\s+/).filter(part => part.length > 0);
+
+        if (!fullName || !arabicRegex.test(fullName) || nameParts.length < 4) {
             document.getElementById("fullNameError").style.display = "block";
             isValid = false;
         } else {
@@ -311,6 +371,13 @@ function fixDigits(el) {
             isValid = false;
         } else {
             document.getElementById("phoneError").style.display = "none";
+        }
+
+        if (!studentType) {
+            document.getElementById("studentTypeError").style.display = "block";
+            isValid = false;
+        } else {
+            document.getElementById("studentTypeError").style.display = "none";
         }
 
         if (isValid) {
@@ -387,12 +454,13 @@ function fixDigits(el) {
             studentCode: document.getElementById("studentCode").value.trim(),
             nationalId: document.getElementById("nationalId").value.trim(),
             phone: document.getElementById("phone").value.trim(),
+            studentType: document.getElementById("studentType").value,
             track: track,
             subject: subject,
             timestamp: new Date().toLocaleString("ar-EG")
         };
 
-        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwF2LxCfrm8fJ9uOt7a8ljh7UlFBHch5BBx3TptkF8RN7vl3dTOm5aGC5wATKtoSExV/exec";
+        const SCRIPT_URL = "YOUR_GOOGLE_APPS_SCRIPT_WEBHOOK_URL";
 
         fetch(SCRIPT_URL, {
             method: "POST",
