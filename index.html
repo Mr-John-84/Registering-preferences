@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تجميع رغبات البكالوريا 2026 / 2027 - مدرسة الشهيد أحمد عبد الرحيم السرسي</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --accent-color: #0284c7;
+            --danger-color: #dc2626;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #1e293b;
+            --border-color: #cbd5e1;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Tajawal', sans-serif; }
+        body { 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            padding: 20px; 
+            min-height: 100vh; 
+            display: flex; 
+            flex-direction: column;
+            align-items: center; 
+            justify-content: center; 
+        }
+        
+        .form-container {
+            background: var(--card-bg);
+            width: 100%;
+            max-width: 650px;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            border: 1px solid var(--border-color);
+        }
+
+        .header { text-align: center; margin-bottom: 20px; border-bottom: 2px solid #f1f5f9; padding-bottom: 15px; }
+        .header h1 { color: var(--primary-color); font-size: 20px; font-weight: 700; margin-bottom: 6px; line-height: 1.4; }
+        .header p { color: #64748b; font-size: 14px; }
+        .header .academic-year { font-weight: 700; color: var(--primary-color); margin-top: 6px; font-size: 15px; }
+
+        .step-indicator {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .step-item {
+            flex: 1;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #94a3b8;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+        .step-item.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .warning-box {
+            background-color: #fef2f2;
+            border-right: 4px solid var(--danger-color);
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #991b1b;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .info-box {
+            background-color: #eff6ff;
+            border-right: 4px solid var(--accent-color);
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #1e40af;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .form-group { margin-bottom: 18px; }
+        label { display: block; font-weight: 600; margin-bottom: 6px; font-size: 14px; color: #334155; }
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.2s ease;
+            outline: none;
+            background-color: #fff;
+        }
+        input:focus, select:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 14px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-align: center;
+        }
+        .btn-primary { background-color: var(--primary-color); color: white; }
+        .btn-primary:hover { background-color: #1d4ed8; }
+        .btn-secondary { background-color: #e2e8f0; color: #334155; }
+        .btn-secondary:hover { background-color: #cbd5e1; }
+        .btn:disabled { background-color: #94a3b8; cursor: not-allowed; }
+
+        .hidden { display: none !important; }
+        .error-msg { color: #dc2626; font-size: 12px; margin-top: 4px; display: none; }
+        .status-msg { text-align: center; margin-top: 15px; font-weight: 600; font-size: 14px; line-height: 1.5; }
+
+        .footer-credits {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #64748b;
+            text-align: center;
+            direction: ltr;
+            font-family: Arial, sans-serif;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <div class="header">
+        <h1>مدرسة الشهيد أحمد عبد الرحيم السرسي<br><span style="font-size: 15px; color: #475569;">(الثانوية القديمة بنات سابقاً)</span></h1>
+        <p style="margin-top: 8px;">تسجيل رغبات ومسارات شهادة البكالوريا - الصف الثاني الثانوي</p>
+        <p class="academic-year">العام الدراسي 2026 / 2027</p>
+    </div>
+
+    <!-- شريط توضيح الخطوات -->
+    <div class="step-indicator">
+        <div class="step-item active" id="step1-tab">الخطوة 1: البيانات الأساسية</div>
+        <div class="step-item" id="step2-tab">الخطوة 2: اختيار المسار والرغبة</div>
+    </div>
+
+    <!-- تنبيه منع التكرار -->
+    <div class="warning-box">
+        <strong>⚠️ تنبيه هام جداً:</strong> يُسمح لكل طالبة بالتسجيل <strong>مرة واحدة فقط</strong>، ولا يمكن تعديل الرغبة أو البيانات بعد الضغط على زر الإرسال.
+    </div>
+
+    <form id="bacForm">
+        <!-- ================= الخطوة الأولى: البيانات الأساسية ================= -->
+        <div id="step1">
+            <div class="form-group">
+                <label for="fullName">الاسم الرباعي <span style="color:red">*</span></label>
+                <input type="text" id="fullName" placeholder="أدخلي الاسم الرباعي كما هو بالشهادة">
+                <span class="error-msg" id="fullNameError">يرجى كتابة الاسم الرباعي بشكل صحيح.</span>
+            </div>
+
+            <!-- كود الطالبة (9 أرقام) -->
+            <div class="form-group">
+                <label for="studentCode">كود الطالبة (9 أرقام) <span style="color:red">*</span></label>
+                <input type="text" id="studentCode" maxlength="9" placeholder="أدخلي 9 أرقام باللغة الإنجليزية">
+                <span class="error-msg" id="studentCodeError">يجب إدخال كود الطالبة صحيحاً ومكوناً من 9 أرقام.</span>
+            </div>
+
+            <div class="form-group">
+                <label for="nationalId">الرقم القومي (14 رقم) <span style="color:red">*</span></label>
+                <input type="text" id="nationalId" maxlength="14" placeholder="أدخلي 14 رقم باللغة الإنجليزية">
+                <span class="error-msg" id="nationalIdError">يجب إدخال 14 رقم صحيح.</span>
+            </div>
+
+            <div class="form-group">
+                <label for="phone">رقم التليفون / الواتساب <span style="color:red">*</span></label>
+                <input type="tel" id="phone" maxlength="11" placeholder="01XXXXXXXXX">
+                <span class="error-msg" id="phoneError">يرجى إدخال رقم محمول صحيح مكون من 11 رقم.</span>
+            </div>
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary" onclick="goToStep2()">التالي: اختيار المسار &leftarrow;</button>
+            </div>
+        </div>
+
+        <!-- ================= الخطوة الثانية: المسارات والرغبات ================= -->
+        <div id="step2" class="hidden">
+            <div class="info-box">
+                <strong>المواد الأساسية (المقررة على جميع المسارات):</strong> اللغة العربية + اللغة الإنجليزية + التاريخ.
+            </div>
+
+            <div class="form-group">
+                <label for="track">المسار التخصصي <span style="color:red">*</span></label>
+                <select id="track" onchange="updateSubjects()">
+                    <option value="" disabled selected>-- اختاري المسار --</option>
+                    <option value="الطب وعلوم الحياة">الطب وعلوم الحياة</option>
+                    <option value="الهندسة وعلوم الحاسب">الهندسة وعلوم الحاسب</option>
+                    <option value="الأعمال">الأعمال</option>
+                    <option value="الآداب والفنون">الآداب والفنون</option>
+                </select>
+                <span class="error-msg" id="trackError">يرجى اختيار المسار التخصصي.</span>
+            </div>
+
+            <div class="form-group hidden" id="subjectGroup">
+                <label for="subject">المادة التخصصية (يُختار منها مادة واحدة فقط) <span style="color:red">*</span></label>
+                <select id="subject">
+                    <option value="" disabled selected>-- اختاري المادة --</option>
+                </select>
+                <span class="error-msg" id="subjectError">يرجى اختيار المادة التخصصية.</span>
+            </div>
+
+            <div class="btn-group">
+                <button type="button" class="btn btn-secondary" onclick="goToStep1()">&rightarrow; السابق</button>
+                <button type="submit" class="btn btn-primary" id="submitBtn">تسجيل الرغبة نهائياً</button>
+            </div>
+        </div>
+
+        <div class="status-msg" id="statusMsg"></div>
+    </form>
+</div>
+
+<!-- حقوق التطوير والتصميم -->
+<div class="footer-credits">
+    Design and development by Mr. John Wagdy <br>(2026)
+<br>01064997527
+</div>
+
+<script>
+    const trackSubjectsMap = {
+        "الطب وعلوم الحياة": ["الرياضيات", "الفيزياء"],
+        "الهندسة وعلوم الحاسب": ["الكيمياء", "البرمجة"],
+        "الأعمال": ["محاسبة", "إدارة أعمال"],
+        "الآداب والفنون": ["علم النفس", "لغة ثانية"]
+    };
+
+    window.onload = function() {
+        if (localStorage.getItem("bacSubmitted_Sersi") === "true") {
+            showAlreadySubmitted();
+        }
+    };
+
+    function showAlreadySubmitted() {
+        const container = document.querySelector(".form-container");
+        container.innerHTML = `
+            <div class="header">
+                <h1>مدرسة الشهيد أحمد عبد الرحيم السرسي<br><span style="font-size: 15px; color: #475569;">(الثانوية القديمة بنات سابقاً)</span></h1>
+                <p style="margin-top: 8px;">تسجيل رغبات ومسارات شهادة البكالوريا - الصف الثاني الثانوي</p>
+                <p class="academic-year">العام الدراسي 2026 / 2027</p>
+                <p style="color: #16a34a; font-weight: bold; margin-top: 20px; font-size: 16px;">
+                    ✓ تم تسجيل رغبتك بنجاح مسبقاً من هذا الجهاز.
+                </p>
+                <p style="color: #64748b; font-size: 13px; margin-top: 10px;">
+                    لا يمكنك إعادة إرسال الاستمارة مرة أخرى. إذا كنت ترغبين في تعديل بياناتك يرجى مراجعة إدارة المدرسة.
+                </p>
+            </div>
+        `;
+    }
+
+    function goToStep2() {
+        const fullName = document.getElementById("fullName").value.trim();
+        const studentCode = document.getElementById("studentCode").value.trim();
+        const nationalId = document.getElementById("nationalId").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+
+        let isValid = true;
+
+        if (!fullName) {
+            document.getElementById("fullNameError").style.display = "block";
+            isValid = false;
+        } else {
+            document.getElementById("fullNameError").style.display = "none";
+        }
+
+        if (!/^[0-9]{9}$/.test(studentCode)) {
+            document.getElementById("studentCodeError").style.display = "block";
+            isValid = false;
+        } else {
+            document.getElementById("studentCodeError").style.display = "none";
+        }
+
+        if (!/^[0-9]{14}$/.test(nationalId)) {
+            document.getElementById("nationalIdError").style.display = "block";
+            isValid = false;
+        } else {
+            document.getElementById("nationalIdError").style.display = "none";
+        }
+
+        if (!/^01[0125][0-9]{8}$/.test(phone)) {
+            document.getElementById("phoneError").style.display = "block";
+            isValid = false;
+        } else {
+            document.getElementById("phoneError").style.display = "none";
+        }
+
+        if (isValid) {
+            document.getElementById("step1").classList.add("hidden");
+            document.getElementById("step2").classList.remove("hidden");
+            document.getElementById("step1-tab").classList.remove("active");
+            document.getElementById("step2-tab").classList.add("active");
+        }
+    }
+
+    function goToStep1() {
+        document.getElementById("step2").classList.add("hidden");
+        document.getElementById("step1").classList.remove("hidden");
+        document.getElementById("step2-tab").classList.remove("active");
+        document.getElementById("step1-tab").classList.add("active");
+    }
+
+    function updateSubjects() {
+        const trackSelect = document.getElementById("track");
+        const subjectGroup = document.getElementById("subjectGroup");
+        const subjectSelect = document.getElementById("subject");
+        
+        const selectedTrack = trackSelect.value;
+        subjectSelect.innerHTML = '<option value="" disabled selected>-- اختاري المادة --</option>';
+
+        if (selectedTrack && trackSubjectsMap[selectedTrack]) {
+            trackSubjectsMap[selectedTrack].forEach(sub => {
+                const opt = document.createElement("option");
+                opt.value = sub;
+                opt.textContent = sub;
+                subjectSelect.appendChild(opt);
+            });
+            subjectGroup.classList.remove("hidden");
+        } else {
+            subjectGroup.classList.add("hidden");
+        }
+    }
+
+    document.getElementById("bacForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const track = document.getElementById("track").value;
+        const subject = document.getElementById("subject").value;
+        const trackError = document.getElementById("trackError");
+        const subjectError = document.getElementById("subjectError");
+
+        let isValid = true;
+
+        if (!track) {
+            trackError.style.display = "block";
+            isValid = false;
+        } else {
+            trackError.style.display = "none";
+        }
+
+        if (!subject) {
+            subjectError.style.display = "block";
+            isValid = false;
+        } else {
+            subjectError.style.display = "none";
+        }
+
+        if (!isValid) return;
+
+        const submitBtn = document.getElementById("submitBtn");
+        const statusMsg = document.getElementById("statusMsg");
+        
+        submitBtn.disabled = true;
+        submitBtn.innerText = "جاري التحقق والتسجيل...";
+        statusMsg.innerText = "";
+
+        const formData = {
+            fullName: document.getElementById("fullName").value.trim(),
+            studentCode: document.getElementById("studentCode").value.trim(),
+            nationalId: document.getElementById("nationalId").value.trim(),
+            phone: document.getElementById("phone").value.trim(),
+            track: track,
+            subject: subject,
+            timestamp: new Date().toLocaleString("ar-EG")
+        };
+
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwF2LxCfrm8fJ9uOt7a8ljh7UlFBHch5BBx3TptkF8RN7vl3dTOm5aGC5wATKtoSExV/exec";
+
+        fetch(SCRIPT_URL, {
+            method: "POST",
+            body: JSON.stringify(formData)
+        })
+        .then(res => res.json())
+        .then(response => {
+            if (response.result === "success") {
+                statusMsg.style.color = "#16a34a";
+                statusMsg.innerText = response.message;
+                localStorage.setItem("bacSubmitted_Sersi", "true");
+                setTimeout(showAlreadySubmitted, 2000);
+            } else if (response.result === "duplicate" || response.result === "error") {
+                statusMsg.style.color = "#dc2626";
+                statusMsg.innerText = response.message;
+                submitBtn.disabled = false;
+                submitBtn.innerText = "تسجيل الرغبة نهائياً";
+            } else {
+                statusMsg.style.color = "#dc2626";
+                statusMsg.innerText = "حدث خطأ غير متوقع، يرجى إعادة المحاولة.";
+                submitBtn.disabled = false;
+                submitBtn.innerText = "تسجيل الرغبة نهائياً";
+            }
+        })
+        .catch(error => {
+            statusMsg.style.color = "#dc2626";
+            statusMsg.innerText = "تعذر الاتصال بالسيرفر. يرجى التأكد من شبكة الإنترنت.";
+            submitBtn.disabled = false;
+            submitBtn.innerText = "تسجيل الرغبة نهائياً";
+        });
+    });
+</script>
+</body>
+</html>
