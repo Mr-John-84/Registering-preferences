@@ -174,13 +174,13 @@
             <!-- كود الطالبة (9 أرقام) -->
             <div class="form-group">
                 <label for="studentCode">كود الطالبة (9 أرقام) <span style="color:red">*</span></label>
-                <input type="text" id="studentCode" maxlength="9" placeholder="أدخلي 9 أرقام باللغة الإنجليزية">
+                <input type="text" id="studentCode" maxlength="9" placeholder="أدخلي 9 أرقام باللغة الإنجليزية" oninput="fixDigits(this)">
                 <span class="error-msg" id="studentCodeError">يجب إدخال كود الطالبة صحيحاً ومكوناً من 9 أرقام.</span>
             </div>
 
             <div class="form-group">
                 <label for="nationalId">الرقم القومي (14 رقم) <span style="color:red">*</span></label>
-                <input type="text" id="nationalId" maxlength="14" placeholder="أدخلي 14 رقم باللغة الإنجليزية">
+                <input type="text" id="nationalId" maxlength="14" placeholder="أدخلي 14 رقم باللغة الإنجليزية" oninput="fixDigits(this)">
                 <span class="error-msg" id="nationalIdError">يجب إدخال 14 رقم صحيح.</span>
             </div>
 
@@ -238,6 +238,15 @@
 </div>
 
 <script>
+function fixDigits(el) {
+    // 1. تحويل الأرقام العربية المشرقية (٠-٩) إلى أرقام إنجليزية (0-9)
+    const arabicDigits = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+    for (let i = 0; i < 10; i++) {
+        el.value = el.value.replaceAll(arabicDigits[i], i);
+    }
+    // 2. مسح أي شيء آخر ليس رقماً إنجليزياً (حروف، رموز، مساحات)
+    el.value = el.value.replace(/[^0-9]/g, '');
+}
     const trackSubjectsMap = {
         "الطب وعلوم الحياة": ["الرياضيات", "الفيزياء"],
         "الهندسة وعلوم الحاسب": ["الكيمياء", "البرمجة"],
